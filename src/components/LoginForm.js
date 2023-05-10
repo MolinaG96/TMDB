@@ -8,6 +8,11 @@ export default function LoginForm() {
   const passwordInput = useInput();
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
+
   return (
     <div className="container" style={{ margin: "5%" }}>
       <h2 style={{ marginBottom: "50px" }}>Login</h2>

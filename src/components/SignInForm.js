@@ -16,9 +16,9 @@ export default function SignInForm() {
 
     axios
       .post("http://localhost:3001/users", {
-        username: userNameInput.value,
-        password: passwordInput.value,
-        email: emailInput.value,
+        username: e.target.username.value,
+        password: e.target.password.value,
+        email: e.target.email.value,
       })
       .then((user) => {
         console.log(user);
@@ -41,7 +41,8 @@ export default function SignInForm() {
             type="text"
             className="form-control"
             id="username"
-            {...userNameInput}
+            value={userNameInput.value}
+            onChange={userNameInput.onChange}
           />
         </div>
         <div className="mb-3">
@@ -49,10 +50,11 @@ export default function SignInForm() {
             Password
           </label>
           <input
-            type="password"
+            type="text"
             className="form-control"
             id="password"
-            {...passwordInput}
+            value={passwordInput.value}
+            onChange={passwordInput.onChange}
           />
         </div>
         <div className="mb-3">
@@ -63,7 +65,8 @@ export default function SignInForm() {
             type="text"
             className="form-control"
             id="email"
-            {...emailInput}
+            value={emailInput.value}
+            onChange={emailInput.onChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">
