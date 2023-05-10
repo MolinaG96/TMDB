@@ -8,27 +8,6 @@ export default function LoginForm() {
   const passwordInput = useInput();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-
-    axios
-      .post("http://localhost:3001/", {
-        username: formData.get("username"),
-        password: formData.get("password"),
-        email: formData.get("email"),
-        fav: formData.get("fav"),
-      })
-      .then((response) => {
-        console.log(response.data);
-        // redirigir al dashboard
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <div className="container" style={{ margin: "5%" }}>
       <h2 style={{ marginBottom: "50px" }}>Login</h2>
